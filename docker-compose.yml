@@ -1,0 +1,14 @@
+version: "3"
+services:
+  postgres:
+    container_name: pgsql-db
+    image: postgres
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: teste
+      POSTGRES_PASSWORD: teste1234
+      POSTGRES_DB: db
+    volumes:
+      - /home/ubuntu/db/script/db-psql.sql:/docker-entrypoint-initdb.d/db.sql:ro
